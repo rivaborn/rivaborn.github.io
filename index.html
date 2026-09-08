@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VUmedi Library — personal video-invitation reader</title>
+  <style>
+    body { font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+           margin: 0; color: #1f2430; background: #fafbfc; line-height: 1.6; }
+    main { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.9rem; margin: 0 0 .25rem; }
+    .muted { color: #5a6472; }
+    h2 { margin-top: 2.25rem; font-size: 1.15rem; }
+    ul { padding-left: 1.2rem; }
+    footer { margin-top: 3rem; font-size: .85rem; color: #5a6472; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>VUmedi Library</h1>
+  <p class="muted">A private, single-user tool that keeps a local, searchable index of
+  medical-webinar invitations sent by Vumedi (<code>videos@vumedi.com</code>).</p>
+
+  <h2>What it is</h2>
+  <p>VUmedi Library reads the Gmail inbox of its single user with <em>read-only</em> access,
+  extracts video-webinar invitations from <code>videos@vumedi.com</code> (title, presenter,
+  organization, date, and watch link), classifies them by medical specialty, and stores them
+  in a local SQLite database on the user's own server. Videos are opened on
+  <a href="https://www.vumedi.com">vumedi.com</a>, where the user signs in with their own
+  Vumedi account.</p>
+
+  <h2>What the Gmail permission is used for</h2>
+  <ul>
+    <li><b>Scope requested:</b> <code>https://www.googleapis.com/auth/gmail.readonly</code>
+        — read-only. VUmedi Library cannot send, delete, or modify mail.</li>
+    <li>Only messages from <code>videos@vumedi.com</code> are read; nothing else in the
+        mailbox is accessed beyond listing those messages.</li>
+    <li>Email content is processed locally on the user's own server and stored locally.
+        No email data is sent to, stored on, or shared with any third party or external
+        service by this application.</li>
+    <li>The Gmail access token and refresh token are stored only on the user's server,
+        in an access-restricted <code>credentials/</code> directory.</li>
+  </ul>
+
+  <h2>Data handling</h2>
+  <ul>
+    <li>This project does not collect, transmit, sell, or share user data.</li>
+    <li>There is no backend service: the application runs entirely on equipment owned and
+        operated by its sole user, on a private home network.</li>
+    <li>Users can revoke access at any time from their
+        <a href="https://myaccount.google.com/permissions">Google account permissions page</a>.</li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>This is a personal, single-user project maintained by the account owner on
+  <a href="https://github.com/rivaborn">GitHub (rivaborn)</a>. For questions about this app,
+  use the review/contact link shown on its Google OAuth consent screen, which reaches the
+  maintainer directly.</p>
+
+  <footer>VUmedi Library — personal project, not affiliated with Vumedi.</footer>
+</main>
+</body>
+</html>
